@@ -1,0 +1,13 @@
+# Certificados y llaves privadas
+config/certs/*.key
+config/certs/*.crt
+config/certs/*.pem
+config/certs/*.p12
+config/certs/*.zip
+
+# Archivos de sistema y editores
+.DS_Store
+*.swp
+*.tmp
+.vscode/
+.idea/
