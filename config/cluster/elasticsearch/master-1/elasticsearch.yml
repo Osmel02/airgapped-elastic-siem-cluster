@@ -1,20 +1,20 @@
-cluster.name: cos-eti
+cluster.name: soc
 node.name: master-1
 node.roles: [ master ]
 
 path.data: /mnt/elasticsearch
 path.logs: /var/log/elasticsearch
 
-network.host: 192.168.254.101
-network.bind_host: 192.168.254.101
-network.publish_host: 192.168.254.101
+network.host: master-1.soc.com
+network.bind_host: master-1.soc.com
+network.publish_host: master-1.soc.com
 http.port: 9200
 transport.port: 9300
 
 discovery.seed_hosts:
-  - maste
-  - 192.168.254.102
-  - 192.168.254.103
+  - master-1.soc.com
+  - master-2.soc.com
+  - master-3.soc.com
 cluster.initial_master_nodes:
   - master-1
   - master-2
@@ -36,6 +36,3 @@ xpack.security.http.ssl:
   keystore.path: /etc/elasticsearch/certs/master-1/master-1.p12
   truststore.path: /etc/elasticsearch/certs/master-1/master-1.p12
   verification_mode: certificate
-
-# Otras optimizaciones
-indices.query.bool.max_clause_count: 10000

@@ -1,0 +1,15 @@
+server.host: "kibana-1.soc.com"
+server.port: 5601
+server.name: "kibana-1"
+
+server.ssl.enabled: true
+server.ssl.keystore.path: "/etc/kibana/certs/kibana-1.p12"
+
+elasticsearch.hosts: ["https://balanceador.soc.com/coord"] 
+elasticsearch.user: "kibana-system"
+elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/certs/ca.crt" ]
+elasticsearch.ssl.verificationMode: certificate
+
+xpack.encryptedSavedObjects.encryptionKey: "PEGAR_CADENA_1_AQUI"
+xpack.security.encryptionKey: "PEGAR_CADENA_2_AQUI"
+xpack.reporting.encryptionKey: "PEGAR_CADENA_3_AQUI"

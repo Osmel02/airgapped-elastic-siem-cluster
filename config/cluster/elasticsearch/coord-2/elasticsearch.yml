@@ -1,26 +1,21 @@
-cluster.name: cos-eti
-node.name: master-1
-node.roles: [ master ]
+cluster.name: soc
+node.name: coord-2
+node.roles: []
 
 path.data: /mnt/elasticsearch
 path.logs: /var/log/elasticsearch
 
-network.host: 192.168.254.101
-network.bind_host: 192.168.254.101
-network.publish_host: 192.168.254.101
-http.port: 9200
+network.host: coord-2.soc.com
+network.bind_host: coord-2.soc.com
+network.publish_host: coord-2.soc.com
 transport.port: 9300
+http.port: 9200
 
 discovery.seed_hosts:
-  - maste
-  - 192.168.254.102
-  - 192.168.254.103
-cluster.initial_master_nodes:
-  - master-1
-  - master-2
-  - master-3
+  - master-1.soc.com
+  - master-2.soc.com
+  - master-3.soc.com
 
-# Seguridad TLS
 xpack.security.enabled: true
 xpack.security.authc.api_key.enabled: true
 xpack.security.enrollment.enabled: true
@@ -28,14 +23,13 @@ xpack.security.enrollment.enabled: true
 xpack.security.transport.ssl:
   enabled: true
   verification_mode: certificate
-  keystore.path: /etc/elasticsearch/certs/master-1/master-1.p12
-  truststore.path: /etc/elasticsearch/certs/master-1/master-1.p12
+  keystore.path: /etc/elasticsearch/certs/coord-2/coord-2.p12
+  truststore.path: /etc/elasticsearch/certs/coord-2/coord-2.p12
 
 xpack.security.http.ssl:
   enabled: true
-  keystore.path: /etc/elasticsearch/certs/master-1/master-1.p12
-  truststore.path: /etc/elasticsearch/certs/master-1/master-1.p12
+  keystore.path: /etc/elasticsearch/certs/coord-2/coord-2.p12
+  truststore.path: /etc/elasticsearch/certs/coord-2/coord-2.p12
   verification_mode: certificate
 
-# Otras optimizaciones
 indices.query.bool.max_clause_count: 10000

@@ -1,13 +1,13 @@
 cluster.name: soc
-node.name: ingest-2
-node.roles: [ ingest ]
+node.name: ml-1
+node.roles: [ transform]
 
 path.data: /mnt/elasticsearch
 path.logs: /var/log/elasticsearch
 
-network.host: ingest-2.soc.com
-network.bind_host: ingest-2.soc.com
-network.publish_host: ingest-2.soc.com
+network.host: ml-1.soc.com
+network.bind_host: ml-1.soc.com
+network.publish_host: ml-1.soc.com
 transport.port: 9300
 http.port: 9200
 
@@ -23,13 +23,15 @@ xpack.security.enrollment.enabled: true
 xpack.security.transport.ssl:
   enabled: true
   verification_mode: certificate
-  keystore.path: /etc/elasticsearch/certs/ingest-2/ingest-2.p12
-  truststore.path: /etc/elasticsearch/certs/ingest-1/ingest-1.p12
+  keystore.path: /etc/elasticsearch/certs/ml-1/ml-1.p12
+  truststore.path: /etc/elasticsearch/certs/ml-1/ml-1.p12
 
 xpack.security.http.ssl:
   enabled: true
-  keystore.path: /etc/elasticsearch/certs/ingest-2/ingest-2.p12
-  truststore.path: /etc/elasticsearch/certs/ingest-2/ingest-2.p12
+  keystore.path: /etc/elasticsearch/certs/ml-1/ml-1.p12
+  truststore.path: /etc/elasticsearch/certs/ml-1/ml-1.p12
   verification_mode: certificate
 
 indices.query.bool.max_clause_count: 10000
+
+xpack.ml.enabled: true

@@ -1,0 +1,41 @@
+cluster.name: soc
+node.name: data-2
+node.roles: [ data ]
+
+path.data: /mnt/elasticsearch
+path.logs: /var/log/elasticsearch
+
+network.host: data-2.soc.com
+network.bind_host: data-2.soc.com
+network.publish_host: data-2.soc.com
+transport.port: 9300
+http.port: 9200
+
+discovery.seed_hosts:
+  - master-1.soc.com
+  - master-2.soc.com
+  - master-3.soc.com
+
+xpack.security.enabled: true
+xpack.security.authc.api_key.enabled: true
+xpack.security.enrollment.enabled: true
+
+xpack.security.transport.ssl:
+  enabled: true
+  verification_mode: certificate
+  keystore.path: /etc/elasticsearch/certs/data-2/data-2.p12
+  truststore.path: /etc/elasticsearch/certs/data-2/data-2.p12
+
+xpack.security.http.ssl:
+  enabled: true
+  keystore.path: /etc/elasticsearch/certs/data-2/data-2.p12
+  truststore.path: /etc/elasticsearch/certs/data-2/data-2.p12
+  verification_mode: certificate
+
+indices.query.bool.max_clause_count: 10000
+
+cluster.routing.rebalance.enable: "all"
+cluster.routing.allocation.allow_rebalance: "always"
+cluster.routing.allocation.disk.watermark.low: "85%"
+cluster.routing.allocation.disk.watermark.high: "90%"
+cluster.routing.allocation.disk.watermark.flood_stage: "95%"
