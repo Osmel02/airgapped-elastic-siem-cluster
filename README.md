@@ -14,7 +14,7 @@ Despliegue e implementación de un clúster de Elastic Stack 9.5.4 en arquitectu
 | Coordinate Dedicated | 2 | Enrutamiento de consultas y agregación de búsquedas. |
 | Transform | 1 | Tablas pivote continuas. |
 | ML | 1 | Analítica de métricas. |
-| Fleet | 1 | Gateway para agentes Elastic Agent. |
+| Fleet | 2 | Gateway para agentes Elastic Agent. |
 | Nginx Proxy | 1 | Balanceo de carga L7 |
 
 ![cluster-healt](architecture/cluster-healt.png)
